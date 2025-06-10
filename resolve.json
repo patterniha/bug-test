@@ -1,0 +1,44 @@
+{
+  "log": {
+    "loglevel": "debug", "dnsLog": true
+  },
+
+  "dns":{
+    "hosts": {
+      "example.com": ["1.1.1.1", "2.2.2.2", "3.3.3.3"]
+    }
+  },
+  
+  "inbounds": [
+{
+      "tag": "socks-in",
+      "port": 10808,
+      "protocol": "socks", 
+      "settings": {"udp": true}
+    },
+
+    {
+      "tag": "dokomo-in",
+      "port": 10853,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "example.com",
+        "port": 1000,
+        "network": "udp"        
+      }      
+    }
+  ],
+
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {"domainStrategy": "ForceIP"}
+    }
+  ]
+ }
+
+
+
+
+
