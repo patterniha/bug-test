@@ -4,7 +4,7 @@
   },
 
   "dns":{
-    "servers": ["fakedns"]
+    "servers": ["fakedns"],
     "tag": "dns-query"
   },
   
