@@ -1,0 +1,53 @@
+{
+  "log": {
+    "loglevel": "debug", "dnsLog": true
+  },
+
+  "dns":{
+    "servers": ["fakedns"],
+    "tag": "dns-query"
+  },
+  
+  "inbounds": [
+    {
+      "tag": "socks-in",
+      "port": 10808,
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["fakedns"]
+      },
+      "settings": {"udp": true}
+    }
+  ],
+
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {"redirect": "188.114.98.0:0"}
+    },    
+    {
+      "tag": "dns-out",
+      "protocol": "dns"
+    }    
+  ],
+
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [                  
+      {"outboundTag": "dns-out",
+       "inboundTag": ["socks-in"], "port": 53
+      },
+      {"outboundTag": "direct",
+       "port": "0-65535"
+      }
+    ]
+  }
+}
+
+
+
+
+
+
