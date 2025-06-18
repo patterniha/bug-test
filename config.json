@@ -1,73 +1,53 @@
 {
-  "log": {
-    "loglevel": "debug"
-  },
-  "reverse": {
-    "bridges": [
-      {
-        "tag": "bridge",
-        "domain": "my.isna.ir"
-      }
-    ]
-  },
+  "reverse":{
+  "bridges":  [{
+  "tag": "bridge",
+   "domain":"my.isna.ir"}
+]
+},
   "outbounds": [
+    { "protocol": "vless",
+       "tag": "interconn", 
+       
+      "settings":{
+        "vnext":[
+        {
+        "address": "",
+        "port": ,
+                    "users":[
+                    {"id":"11111111-1111-1111-1111-111111111111",
+                    "encryption": "none"
+                    }
+]}
+                ]
+         }
+   
+           
+  },
+  
     {
-      "tag": "interconn",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "94.183.145.95",
-            "port": 443,
-            "users": [
-              {
-                "id": "11111111-1111-1111-1111-111111111234", 
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-         "security": "tls",
-                "tlsSettings": {
-                    "serverName": "javideuler.ir",
-                    "fingerprint": "chrome",
-                    "alpn": ["http/1.1"]
-                },
-        
-        "network": "ws", 
-        "wsSettings": {
-          "path": "/123456788", 
-          "host": "javideuler.ir",
-          "heartbeatPeriod": 10
-        }
-      }
-    },
-    {
-      "protocol": "freedom",
-      "tag": "out"
-    }
+       "protocol": "freedom",
+       "tag": "out"
+    }                                    
   ],
+
   "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "bridge"
-        ],
-        "domain": [
-          "full:my.isna.ir"
-        ],
-        "outboundTag": "interconn"
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "bridge"
-        ],
-        "outboundTag": "out"
-      }
-    ]
+     "domainStrategy": "AsIs",
+     "rules": [
+           
+           {"outboundTag": "interconn",
+            "domain": "full:my.isna.ir"
+           }, 
+           
+           {"outboundTag": "out",
+            "port": "0-65535"
+           }
+
+           
+                                                  
+  
+      ]
   }
+    
+
 }
