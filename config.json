@@ -1,53 +1,26 @@
 {
-  "reverse":{
-  "bridges":  [{
-  "tag": "bridge",
-   "domain":"my.isna.ir"}
-]
-},
-  "outbounds": [
-    { "protocol": "vless",
-       "tag": "interconn", 
-       
-      "settings":{
-        "vnext":[
-        {
-        "address": "",
-        "port": ,
-                    "users":[
-                    {"id":"11111111-1111-1111-1111-111111111111",
-                    "encryption": "none"
-                    }
-]}
-                ]
-         }
-   
-           
-  },
-  
+  "inbounds": [
     {
-       "protocol": "freedom",
-       "tag": "out"
-    }                                    
+      "tag": "socks-in",
+      "port": 10808,
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"],
+        "routeOnly": false
+      },
+      "settings": {"udp": true}
+    }   
   ],
 
-  "routing": {
-     "domainStrategy": "AsIs",
-     "rules": [
-           
-           {"outboundTag": "interconn",
-            "domain": "full:my.isna.ir"
-           }, 
-           
-           {"outboundTag": "out",
-            "port": "0-65535"
-           }
-
-           
-                                                  
+  "outbounds": [
+    {
+       "protocol": "freedom",
+       "tag": "direct"
+    }
+  ],
   
-      ]
+  "routing": {
   }
-    
 
 }
