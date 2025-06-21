@@ -35,7 +35,22 @@
       "settings": {
         "clients": [
           {
-            "id": "" // uuid
+            "id": "" // bridge-portal uuid
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    },
+    {
+      "tag": "external",
+      "port": 22, // port 22 or 443 or ...
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "" // external-portal uuid
           }
         ]
       },
@@ -62,7 +77,7 @@
       },
       {
         "inboundTag": [
-          "interconn", "socks-in"
+          "interconn", "socks-in", "external"
         ],
         "balancerTag": "round"
       } 
