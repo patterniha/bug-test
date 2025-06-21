@@ -6,6 +6,7 @@
     },
     "inbounds": [
         {
+            "tag": "socks-in",
             "port": "10808",
             "protocol": "socks",
             "sniffing": {
