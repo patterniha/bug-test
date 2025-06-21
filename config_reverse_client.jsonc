@@ -1,0 +1,38 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+    },
+    "inbounds": [
+        {
+            "port": "10808",
+            "protocol": "socks",
+            "settings": {
+                "udp": true
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "?",
+                        "port": ?,
+                        "users": [
+                            {
+                                "id": "?"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp"
+            },
+            "tag": "proxy"
+        }
+    ]
+}

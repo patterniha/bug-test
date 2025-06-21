@@ -1,0 +1,143 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "reverse": {
+    "portals": [
+      {
+        "tag": "portal1",
+        "domain": "reverse1.proxy"
+      },
+      {
+        "tag": "portal2",
+        "domain": "reverse2.proxy"
+      },
+      {
+        "tag": "portal3",
+        "domain": "reverse3.proxy"
+      },
+      {
+        "tag": "portal4",
+        "domain": "reverse4.proxy"
+      },
+      {
+        "tag": "portal5",
+        "domain": "reverse5.proxy"
+      },
+      {
+        "tag": "portal6",
+        "domain": "reverse6.proxy"
+      },
+      {
+        "tag": "portal7",
+        "domain": "reverse7.proxy"
+      },
+      {
+        "tag": "portal8",
+        "domain": "reverse8.proxy"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+            "tag": "socks-in",
+            "port": "10808",
+            "protocol": "socks",
+            "settings": {
+                "udp": true
+            }
+    },
+    {
+      "tag": "interconn",
+      "port": ?,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "?"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse1.proxy"],
+        "outboundTag": "portal1"
+      },
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse2.proxy"],
+        "outboundTag": "portal2"
+      },
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse3.proxy"],
+        "outboundTag": "portal3"
+      },
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse4.proxy"],
+        "outboundTag": "portal4"
+      },
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse5.proxy"],
+        "outboundTag": "portal5"
+      },
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse6.proxy"],
+        "outboundTag": "portal6"
+      },
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse7.proxy"],
+        "outboundTag": "portal7"
+      },
+      {
+        "inboundTag": [
+          "interconn"
+        ],
+        "domain": ["full:reverse8.proxy"],
+        "outboundTag": "portal8"
+      },
+      {
+        "inboundTag": [
+          "interconn", "socks-in"
+        ],
+        "balancerTag": "round"
+      } 
+    ],
+    "balancers" : [
+            {
+                "selector": [
+                    "portal1", "portal2", "portal3", "portal4", "portal5", "portal6", "portal7", "portal8"
+                ],
+                "strategy": {
+                    "type":"roundRobin"
+                },
+                "tag": "round"
+            }
+        ]
+  }
+}
