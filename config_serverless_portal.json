@@ -36,7 +36,7 @@
     },
     {
       "tag": "interconn",
-      "port": 22, // bridge-portal port
+      "port": 443, // bridge-portal port
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -51,7 +51,7 @@
     },
     {
       "tag": "others",
-      "port": 443, // others-portal port
+      "port": 22, // others-portal port
       "protocol": "vmess",
       "settings": {
         "clients": [
