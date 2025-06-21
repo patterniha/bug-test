@@ -11,30 +11,6 @@
       {
         "tag": "portal2",
         "domain": "reverse2.proxy"
-      },
-      {
-        "tag": "portal3",
-        "domain": "reverse3.proxy"
-      },
-      {
-        "tag": "portal4",
-        "domain": "reverse4.proxy"
-      },
-      {
-        "tag": "portal5",
-        "domain": "reverse5.proxy"
-      },
-      {
-        "tag": "portal6",
-        "domain": "reverse6.proxy"
-      },
-      {
-        "tag": "portal7",
-        "domain": "reverse7.proxy"
-      },
-      {
-        "tag": "portal8",
-        "domain": "reverse8.proxy"
       }
     ]
   },
@@ -43,18 +19,23 @@
             "tag": "socks-in",
             "port": "10808",
             "protocol": "socks",
+            "sniffing": {
+              "enabled": true,
+              "destOverride": ["http", "tls"],
+              "routeOnly": false
+            },
             "settings": {
                 "udp": true
             }
     },
     {
       "tag": "interconn",
-      "port": ?,
+      "port": 22, // port 22 or 443 or ...
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "?"
+            "id": "" // uuid
           }
         ]
       },
@@ -81,48 +62,6 @@
       },
       {
         "inboundTag": [
-          "interconn"
-        ],
-        "domain": ["full:reverse3.proxy"],
-        "outboundTag": "portal3"
-      },
-      {
-        "inboundTag": [
-          "interconn"
-        ],
-        "domain": ["full:reverse4.proxy"],
-        "outboundTag": "portal4"
-      },
-      {
-        "inboundTag": [
-          "interconn"
-        ],
-        "domain": ["full:reverse5.proxy"],
-        "outboundTag": "portal5"
-      },
-      {
-        "inboundTag": [
-          "interconn"
-        ],
-        "domain": ["full:reverse6.proxy"],
-        "outboundTag": "portal6"
-      },
-      {
-        "inboundTag": [
-          "interconn"
-        ],
-        "domain": ["full:reverse7.proxy"],
-        "outboundTag": "portal7"
-      },
-      {
-        "inboundTag": [
-          "interconn"
-        ],
-        "domain": ["full:reverse8.proxy"],
-        "outboundTag": "portal8"
-      },
-      {
-        "inboundTag": [
           "interconn", "socks-in"
         ],
         "balancerTag": "round"
@@ -131,7 +70,7 @@
     "balancers" : [
             {
                 "selector": [
-                    "portal1", "portal2", "portal3", "portal4", "portal5", "portal6", "portal7", "portal8"
+                    "portal1", "portal2"
                 ],
                 "strategy": {
                     "type":"roundRobin"
