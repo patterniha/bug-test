@@ -37,7 +37,7 @@
         "vnext": [
           {
             "address": "", // portal wan IP
-            "port": 22, // bridge-portal port
+            "port": 443, // bridge-portal port
             "users": [
               {
                 "id": "" // bridge-portal uuid
