@@ -24,11 +24,11 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "", // address wan-IP
-                        "port": 22, // port
+                        "address": "", // others-portal address(LAN/WAN)
+                        "port": 443, // others-portal port
                         "users": [
                             {
-                                "id": "" // uuid
+                                "id": "" // others-portal uuid
                             }
                         ]
                     }
