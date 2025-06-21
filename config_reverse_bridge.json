@@ -21,11 +21,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "", // address
-            "port": 22, // port 22 or 443 or ...
+            "address": "", // portal address
+            "port": 22, // portal port
             "users": [
               {
-                "id": "" // uuid
+                "id": "" // bridge-portal uuid
               }
             ]
           }
