@@ -44,13 +44,13 @@
       }
     },
     {
-      "tag": "external",
+      "tag": "others",
       "port": 22, // port 22 or 443 or ...
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "" // external-portal uuid
+            "id": "" // others-portal uuid
           }
         ]
       },
@@ -77,7 +77,7 @@
       },
       {
         "inboundTag": [
-          "interconn", "socks-in", "external"
+          "interconn", "socks-in", "others"
         ],
         "balancerTag": "round"
       } 
