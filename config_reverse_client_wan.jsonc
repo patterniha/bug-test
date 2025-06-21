@@ -24,7 +24,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "", // address wan-IP or lan-IP
+                        "address": "", // address wan-IP
                         "port": 22, // port
                         "users": [
                             {
