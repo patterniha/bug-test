@@ -14,6 +14,20 @@
       }
     ]
   },
+  "inbounds": [
+        {
+            "port": "10808",
+            "protocol": "socks",
+            "sniffing": {
+              "enabled": true,
+              "destOverride": ["http", "tls"],
+              "routeOnly": false
+            },
+            "settings": {
+                "udp": true
+            }
+        }
+  ],
   "outbounds": [
     {
       "tag": "interconn",
