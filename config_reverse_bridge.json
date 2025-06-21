@@ -5,11 +5,11 @@
   "reverse": {
     "bridges": [
       {
-        "tag": "bridge",
+        "tag": "bridge1",
         "domain": "reverse1.proxy"
       },
       {
-        "tag": "bridge",
+        "tag": "bridge2",
         "domain": "reverse2.proxy"
       }
     ]
@@ -61,7 +61,7 @@
       {
         "type": "field",
         "inboundTag": [
-          "bridge"
+          "bridge1", "bridge2"
         ],
         "domain": [
           "full:reverse1.proxy",
