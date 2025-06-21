@@ -76,9 +76,7 @@
         "outboundTag": "portal2"
       },
       {
-        "inboundTag": [
-          "interconn", "socks-in", "others"
-        ],
+        "port": "0-65535",
         "balancerTag": "round"
       } 
     ],
