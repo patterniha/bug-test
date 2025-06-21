@@ -14,6 +14,12 @@
       }
     ]
   },
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"    
+    }
+  ],
   "inbounds": [
     {
             "tag": "socks-in",
