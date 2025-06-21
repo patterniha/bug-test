@@ -15,7 +15,8 @@
     ]
   },
   "inbounds": [
-        {
+        { 
+            "tag": "socks-in",
             "port": "10808",
             "protocol": "socks",
             "sniffing": {
@@ -70,9 +71,7 @@
       },
       {
         "type": "field",
-        "inboundTag": [
-          "bridge"
-        ],
+        "port": "0-65535",
         "outboundTag": "out"
       }
     ]
