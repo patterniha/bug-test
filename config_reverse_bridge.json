@@ -22,7 +22,7 @@
         "vnext": [
           {
             "address": "", // portal address
-            "port": 22, // portal port
+            "port": 22, // bridge-portal port
             "users": [
               {
                 "id": "" // bridge-portal uuid
