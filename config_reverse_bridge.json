@@ -1,0 +1,96 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "reverse": {
+    "bridges": [
+      {
+        "tag": "bridge",
+        "domain": "reverse1.proxy"
+      },
+      {
+        "tag": "bridge",
+        "domain": "reverse2.proxy"
+      },
+      {
+        "tag": "bridge",
+        "domain": "reverse3.proxy"
+      },
+      {
+        "tag": "bridge",
+        "domain": "reverse4.proxy"
+      },
+      {
+        "tag": "bridge",
+        "domain": "reverse5.proxy"
+      },
+      {
+        "tag": "bridge",
+        "domain": "reverse6.proxy"
+      },
+      {
+        "tag": "bridge",
+        "domain": "reverse7.proxy"
+      },
+      {
+        "tag": "bridge",
+        "domain": "reverse8.proxy"
+      }
+    ]
+  },
+  "outbounds": [
+    {
+      "tag": "interconn",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "?",
+            "port": ?,
+            "users": [
+              {
+                "id": "?"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    },
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "out"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "bridge"
+        ],
+        "domain": [
+          "full:reverse1.proxy",
+          "full:reverse2.proxy",
+          "full:reverse3.proxy",
+          "full:reverse4.proxy",
+          "full:reverse5.proxy",
+          "full:reverse6.proxy",
+          "full:reverse7.proxy",
+          "full:reverse8.proxy"
+        ],
+        "outboundTag": "interconn"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "bridge"
+        ],
+        "outboundTag": "out"
+      }
+    ]
+  }
+}
