@@ -26,7 +26,7 @@
                 "vnext": [
                     {
                         "address": "", // others-portal address(LAN/WAN)
-                        "port": 443, // others-portal port
+                        "port": 22, // others-portal port
                         "users": [
                             {
                                 "id": "" // others-portal uuid
