@@ -8,6 +8,11 @@
         {
             "port": "10808",
             "protocol": "socks",
+            "sniffing": {
+              "enabled": true,
+              "destOverride": ["http", "tls"],
+              "routeOnly": false
+            },
             "settings": {
                 "udp": true
             }
@@ -19,11 +24,11 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "?",
-                        "port": ?,
+                        "address": "", // address wan-IP or lan-IP
+                        "port": 22, // port
                         "users": [
                             {
-                                "id": "?"
+                                "id": "" // uuid
                             }
                         ]
                     }
