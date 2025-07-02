@@ -31,8 +31,8 @@
                         "users": [
                             {
                                 "id": "", //
-                                "flow": "xtls-rprx-vision-udp443" //
-                                "encryption": "none",
+                                "flow": "xtls-rprx-vision-udp443", //
+                                "encryption": "none"
                             }
                         ]
                     }
