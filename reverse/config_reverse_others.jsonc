@@ -1,0 +1,61 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+    },
+    "inbounds": [
+        {
+            "tag": "socks-in",
+            "port": "10808",
+            "protocol": "socks",
+            "sniffing": {
+              "enabled": true,
+              "destOverride": ["http", "tls"],
+              "routeOnly": false
+            },
+            "settings": {
+                "udp": true
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "others",
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "", // 
+                        "port": 8443, //
+                        "users": [
+                            {
+                                "id": "", //
+                                "flow": "xtls-rprx-vision-udp443" //
+                                "encryption": "none",
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "sockopt": {
+                  "tcpKeepAliveInterval": 1,
+                  "tcpKeepAliveIdle": 10
+                },
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "", //
+                    "alpn": ["h2", "http/1.1"], // h3
+                    "fingerprint": "chrome" //
+                },
+                "network": "raw" // "ws" or "xhttp",
+                // "wsSettings": {"path": "/path", "host": "", "heartbeatPeriod": 10}
+                // "xhttpSettings": {
+                //   "host": "","path": "/path","mode": "stream-one" / "stream-up",
+                //   "extra": {"xmux": {"maxConcurrency": 1,"hKeepAlivePeriod": 10}}
+                // }
+           }
+    }
+    ]
+}
