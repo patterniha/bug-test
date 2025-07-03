@@ -53,7 +53,7 @@
                 // "wsSettings": {"path": "/path", "host": "", "heartbeatPeriod": 10}
                 // "xhttpSettings": {
                 //   "host": "","path": "/path","mode": "stream-one" / "stream-up",
-                //   "extra": {"xmux": {"maxConcurrency": 1,"hKeepAlivePeriod": 10}}
+                //   "extra": {"xmux": {"maxConnections": 0,"maxConcurrency": 1,"hKeepAlivePeriod": 10}}
                 // }
            }
     }
