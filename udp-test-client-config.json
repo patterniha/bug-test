@@ -1,0 +1,40 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": "10808",
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "ip": "127.0.0.1"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "proxy",
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "127.0.0.1",
+                        "port": 1234,
+                        "users": [
+                            {
+                                "id": "1",
+                                "encryption": "none"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        
+    ],
+    "routing": {       
+    }
+}
