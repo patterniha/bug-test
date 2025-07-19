@@ -1,0 +1,33 @@
+{
+    "log": {
+        "loglevel": "debug"
+    },
+    "inbounds": [
+        {
+            "port": 1234,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "1"
+                    }
+                ],
+                "decryption": "none",
+                "fallbacks": [
+                  {
+                    "dest": 8888
+                  }
+                ]
+            }
+            
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ],
+    "routing": {
+    }
+}
