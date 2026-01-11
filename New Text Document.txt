@@ -1,0 +1,5 @@
+masscan --exclude 255.255.255.255 --rate 999999 --source-port 8964 --open-only --append-output --wait 4 -pU:53,U:5353,U:5335 --nmap-payloads dns.pcap -iL Iran_Cont_IPs.txt -oL IRDNS_26
+
+
+
+tcpdump -n dst port 8964 and udp -w dnsout.pcap
